@@ -1053,8 +1053,26 @@
       <p>Please report any demand for payment by any member of staff via <a href="tel:08059580002">08059580002</a> or <a href="mailto:info@fcmbpensions.com">info@fcmbpensions.com</a>.</p><br>
       <p><em>FCMB Pensions — the smart choice for a happy retirement.</em></p>
     </div>
+
+    <!-- Newsletter -->
+    <div class="modal-newsletter">
+      <div id="modalNLForm">
+        <p class="modal-nl-label">Stay updated — subscribe to our newsletter</p>
+        <div class="modal-nl-row">
+          <input type="text" id="modal_nl_first" class="modal-nl-input" placeholder="First name" autocomplete="given-name">
+          <input type="text" id="modal_nl_last" class="modal-nl-input" placeholder="Last name" autocomplete="family-name">
+        </div>
+        <input type="email" id="modal_nl_email" class="modal-nl-input full" placeholder="Email address" autocomplete="email">
+        <button class="btn btn-primary btn-sm modal-nl-btn" onclick="handleModalNewsletter(this)">Subscribe</button>
+        <p class="modal-nl-privacy">No spam. Unsubscribe anytime.</p>
+      </div>
+      <div class="modal-nl-success" id="modalNLSuccess" style="display:none;">
+        <div class="newsletter-success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="newsletter-success-title">You're subscribed!</div>
+        <p class="newsletter-success-text">Check your inbox for your first edition.</p>
+      </div>
+    </div>
   </div>
 </div>
-</body>
-<script src="main.js"></script>
-</html>
