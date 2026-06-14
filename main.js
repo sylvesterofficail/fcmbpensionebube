@@ -1,4 +1,4 @@
- /* =============================================
+/* =============================================
    NAVIGATION SCROLL EFFECT
    ============================================= */
 const nav = document.getElementById('mainNav');
@@ -133,7 +133,34 @@ if (!sessionStorage.getItem('caveatShown')) {
 }
 
 /* =============================================
-   NEWSLETTER (stub)
+   MODAL NEWSLETTER FORM
+   ============================================= */
+function handleModalNewsletter(btn) {
+  const first = document.getElementById('modal_nl_first').value.trim();
+  const last  = document.getElementById('modal_nl_last').value.trim();
+  const email = document.getElementById('modal_nl_email').value.trim();
+
+  if (!first)  { highlightField('modal_nl_first'); return; }
+  if (!last)   { highlightField('modal_nl_last');  return; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    highlightField('modal_nl_email'); return;
+  }
+
+  // Loading state
+  btn.textContent = 'Subscribing…';
+  btn.disabled = true;
+
+  // Simulate async — swap to success state
+  setTimeout(() => {
+    const form    = document.getElementById('modalNLForm');
+    const success = document.getElementById('modalNLSuccess');
+    if (form)    form.style.display    = 'none';
+    if (success) success.style.display = 'block';
+  }, 1200);
+}
+
+/* =============================================
+   NEWSLETTER (footer stub)
    ============================================= */
 function handleNewsletterSubmit(btn) {
   btn.textContent = '✓ Subscribed!';
@@ -168,8 +195,12 @@ function handleSectionNewsletter(btn) {
   }, 1200);
 }
 
+/* =============================================
+   FIELD HIGHLIGHT (validation helper)
+   ============================================= */
 function highlightField(id) {
   const el = document.getElementById(id);
+  if (!el) return;
   el.style.borderColor = '#f87171';
   el.style.boxShadow = '0 0 0 3px rgba(248,113,113,0.18)';
   el.focus();
